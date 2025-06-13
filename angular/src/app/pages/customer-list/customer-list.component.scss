@@ -1,0 +1,70 @@
+:host {
+  display: block;
+  padding: 0 10rem;
+  overflow: hidden;
+  height: 100%;
+}
+
+.title {
+  margin: 20px 0;
+}
+
+
+.styled-table {
+  width: 100%;
+  background-color: #fff;
+
+
+  mat-header-cell {
+    background-color: #f5f5f5;
+    font-weight: bold;
+    font-size: 14px;
+    color: #333;
+    padding: 12px;
+  }
+
+  mat-cell {
+    padding: 12px;
+    font-size: 14px;
+    border-bottom: 1px solid #eee;
+  }
+
+  mat-row {
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #fafafa;
+    }
+  }
+}
+
+button[mat-raised-button] {
+  padding: 6px 12px;
+  font-size: 13px;
+  text-transform: none;
+}
+
+
+
+.skeleton-box {
+  height: 16px;
+  border-radius: 4px;
+  background: linear-gradient(100deg, #eeeeee 30%, #dddddd 50%, #eeeeee 70%);
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+  width: 100%;
+}
+
+.skeleton-box.small {
+  width: 60px;
+  height: 32px;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
