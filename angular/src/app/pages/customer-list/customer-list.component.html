@@ -1,56 +1,75 @@
+<!-- Header -->
+<div class="header-row">
+    <h2 class="title">Customers</h2>
+    <mat-form-field appearance="outline" class="search-input">
+        <mat-label>Search</mat-label>
+        <input matInput placeholder="Search customers" [formControl]="searchControl">
+    </mat-form-field>
+</div>
 
-<h2 class="title">Customer List</h2>
+<!-- Table -->
+<mat-table [dataSource]="data$" matSort class="styled-table" (matSortChange)="sort$.next($event)">
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <ng-container *ngIf="!row.isSkeleton; else skeletonRow">
+                <div class="name-cell">
+                    <div class="avatar" [style.background-color]="row.name | avatarColor">
+                        {{ row.name?.charAt(0)?.toUpperCase() }}
+                    </div>
+                    <span>{{ row.name }}</span>
+                </div>
+            </ng-container>
+        </mat-cell>
+    </ng-container>
 
-<mat-table [dataSource]="dataSourceToUse" matSort class="styled-table">
+    <!-- Email Column -->
+    <ng-container matColumnDef="email">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <ng-container *ngIf="!row.isSkeleton; else skeletonRow">{{ row.email }}</ng-container>
+        </mat-cell>
+    </ng-container>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Name</mat-header-cell>
-    <mat-cell *matCellDef="let row">
-      <ng-container *ngIf="!row.isSkeleton; else skeletonRow">
-        {{ row.name }}
-      </ng-container>
-    </mat-cell>
-  </ng-container>
+    <!-- Phone Column -->
+    <ng-container matColumnDef="phone">
+        <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+            <ng-container *ngIf="!row.isSkeleton; else skeletonRow">{{ row.phone }}</ng-container>
+        </mat-cell>
+    </ng-container>
 
-  <!-- Email Column -->
-  <ng-container matColumnDef="email">
-    <mat-header-cell *matHeaderCellDef mat-sort-header>Email</mat-header-cell>
-    <mat-cell *matCellDef="let row">
-      <ng-container *ngIf="!row.isSkeleton; else skeletonRow">
-        {{ row.email }}
-      </ng-container>
-    </mat-cell>
-  </ng-container>
+    <!-- Actions Column -->
+    <ng-container matColumnDef="actions">
+        <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
+        <mat-cell *matCellDef="let row" style="max-width: 200px">
+            <ng-container *ngIf="!row.isSkeleton; else skeletonRow">
+                <button mat-button (click)="viewCustomer(row.id)">View</button>
+            </ng-container>
+        </mat-cell>
+    </ng-container>
 
-  <!-- Phone Column -->
-  <ng-container matColumnDef="phone">
-    <mat-header-cell *matHeaderCellDef>Phone</mat-header-cell>
-    <mat-cell *matCellDef="let row">
-      <ng-container *ngIf="!row.isSkeleton; else skeletonRow">
-        {{ row.phone }}
-      </ng-container>
-    </mat-cell>
-  </ng-container>
-
-  <!-- Actions Column -->
-  <ng-container matColumnDef="actions">
-    <mat-header-cell *matHeaderCellDef>Actions</mat-header-cell>
-    <mat-cell *matCellDef="let row">
-      <ng-container *ngIf="!row.isSkeleton; else skeletonRow">
-        <button mat-raised-button color="primary" (click)="viewCustomer(row.id)">View</button>
-      </ng-container>
-    </mat-cell>
-  </ng-container>
-
-  <!-- Render headers and rows -->
-  <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-  <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
-
+    <!-- Render headers and rows -->
+    <mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
 </mat-table>
 
+<!-- Pagination -->
+<ng-container *ngIf="data$ | async as customers">
+    <mat-paginator
+            *ngIf="!loadingFirstTime && customers.length"
+            [length]="totalElements"
+            style="margin-bottom: 10px"
+            [pageSize]="pageSize$ | async"
+            [pageIndex]="pageIndex$ | async"
+            [pageSizeOptions]="pageOptions"
+            (page)="pagination$.next($event)"
+    >
+    </mat-paginator>
+</ng-container>
 
-
+<!-- Loading template -->
 <ng-template #skeletonRow>
-  <div class="skeleton-box"></div>
+    <div class="skeleton-box"></div>
 </ng-template>

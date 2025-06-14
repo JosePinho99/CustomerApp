@@ -89,4 +89,95 @@ export const CUSTOMERS: Customer[] = [
       { type: 'Checkout Completed', timestamp: '2025-06-12T10:20:00Z', description: 'Purchased "ErgoChair Pro"' },
     ],
   },
+  {
+    id: 'c9',
+    name: 'Liam Chen',
+    email: 'liam.chen@example.com',
+    phone: '+1-415-555-0198',
+    events: [
+      { type: 'Search Performed', timestamp: '2025-06-13T09:30:00Z', description: 'Searched for "standing desk"' },
+      { type: 'Product Viewed', timestamp: '2025-06-13T09:35:00Z', description: 'Viewed "SmartDesk 2"' },
+      { type: 'Product Viewed', timestamp: '2025-06-13T09:38:00Z', description: 'Viewed "SmartDesk Core"' },
+    ],
+  },
+  {
+    id: 'c10',
+    name: 'Emily Davis',
+    email: 'emily.davis@example.com',
+    phone: '+44-20-7946-0958',
+    events: [
+      { type: 'Product Viewed', timestamp: '2025-06-10T14:00:00Z', description: 'Viewed "ErgoChair Plus"' },
+      { type: 'Added to Cart', timestamp: '2025-06-10T14:05:00Z', description: 'Added "ErgoChair Plus" to cart' },
+    ],
+  },
+  {
+    id: 'c11',
+    name: 'Carlos Martínez',
+    email: 'carlos.martinez@example.com',
+    phone: '+34-91-123-4567',
+    events: [
+      { type: 'Search Performed', timestamp: '2025-06-14T08:20:00Z', description: 'Searched for "gaming chairs"' },
+    ],
+  },
+  {
+    id: 'c12',
+    name: 'Sophie Dubois',
+    email: 'sophie.dubois@example.com',
+    phone: '+33-1-2345-6789',
+    events: [
+      { type: 'Product Viewed', timestamp: '2025-06-11T16:45:00Z', description: 'Viewed "ErgoChair Core"' },
+      { type: 'Product Viewed', timestamp: '2025-06-11T16:47:00Z', description: 'Viewed "Lumbar Support Pillow"' },
+    ],
+  },
+  {
+    id: 'c13',
+    name: 'Aarav Patel',
+    email: 'aarav.patel@example.com',
+    phone: '+91-22-4000-1234',
+    events: [
+      { type: 'Search Performed', timestamp: '2025-06-13T12:00:00Z', description: 'Searched for "desk accessories"' },
+      { type: 'Added to Cart', timestamp: '2025-06-13T12:10:00Z', description: 'Added "Cable Organizer" to cart' },
+      { type: 'Checkout Completed', timestamp: '2025-06-13T12:20:00Z', description: 'Purchased "Cable Organizer"' },
+    ],
+  },
+  {
+    id: 'c14',
+    name: 'Mia Nguyen',
+    email: 'mia.nguyen@example.com',
+    phone: '+84-28-3821-0000',
+    events: [
+      { type: 'Search Performed', timestamp: '2025-06-12T17:00:00Z', description: 'Searched for "office desk lamp"' },
+      { type: 'Product Viewed', timestamp: '2025-06-12T17:05:00Z', description: 'Viewed "LED Desk Lamp Pro"' },
+    ],
+  },
+  {
+    id: 'c15',
+    name: 'Noah Müller',
+    email: 'noah.mueller@example.com',
+    phone: '+49-30-1234567',
+    events: [
+      { type: 'Product Viewed', timestamp: '2025-06-14T13:00:00Z', description: 'Viewed "ErgoChair Junior"' },
+      { type: 'Added to Cart', timestamp: '2025-06-14T13:02:00Z', description: 'Added "ErgoChair Junior" to cart' },
+    ],
+  },
+  {
+    id: 'c16',
+    name: 'Isabella Rossi',
+    email: 'isabella.rossi@example.com',
+    phone: '+39-06-12345678',
+    events: [
+      { type: 'Search Performed', timestamp: '2025-06-11T11:30:00Z', description: 'Searched for "adjustable monitor stand"' },
+    ],
+  },
+  {
+    id: 'c17',
+    name: 'Jack Thompson',
+    email: 'jack.thompson@example.com',
+    phone: '+61-2-9876-5432',
+    events: [
+      { type: 'Product Viewed', timestamp: '2025-06-13T15:45:00Z', description: 'Viewed "SmartDesk Corner"' },
+      { type: 'Added to Cart', timestamp: '2025-06-13T15:50:00Z', description: 'Added "SmartDesk Corner" to cart' },
+      { type: 'Checkout Completed', timestamp: '2025-06-13T16:10:00Z', description: 'Purchased "SmartDesk Corner"' },
+    ],
+  }
 ];
