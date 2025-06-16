@@ -20,7 +20,7 @@ import {
     BehaviorSubject, combineLatest,
     concat,
     debounceTime,
-    distinctUntilChanged, map,
+    distinctUntilChanged, map, merge,
     Observable,
     of,
     startWith,
@@ -71,10 +71,12 @@ export class CustomerListComponent {
     pageSize$: Observable<number> = this.pagination$.pipe(map((event) => event.pageSize));
     pageIndex$: Observable<number> = this.pagination$.pipe(map((event) => event.pageIndex));
 
-    search$: Observable<string> = this.searchControl.valueChanges.pipe(
-        startWith(this.searchControl.value),
-        debounceTime(300),
-        distinctUntilChanged()
+    search$: Observable<string> = merge(
+        of(this.searchControl.value), // emits immediately
+        this.searchControl.valueChanges.pipe(
+            debounceTime(300),
+            distinctUntilChanged()
+        )
     );
 
     data$: Observable<Customer[]> = combineLatest([this.search$, this.pagination$, this.sort$]).pipe(

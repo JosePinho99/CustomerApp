@@ -33,6 +33,7 @@ export class CustomerService {
               });
 
             //Paging
+              //TODO fix, this can only be applied if the values are covered
             const startItemIndex: number = pageEvent.pageIndex * pageEvent.pageSize;
             const endItemIndex: number = (pageEvent.pageIndex + 1) * pageEvent.pageSize;
             const pagedItems = sortedItems.slice(startItemIndex, endItemIndex);

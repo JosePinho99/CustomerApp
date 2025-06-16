@@ -1,1 +1,53 @@
-<p>customer-profile works!</p>
+<h2 class="title">Customer Profile</h2>
+
+<div class="container">
+    <mat-card class="profile-card">
+        <div class="profile-header">
+            <div class="avatar">A</div>
+            <div class="profile-info">
+                <h2>Alice Johnson</h2>
+            </div>
+        </div>
+        <mat-form-field appearance="fill" class="input-field">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" value="alice.j@example.com" />
+        </mat-form-field>
+        <mat-form-field appearance="fill" class="input-field">
+            <mat-label>Phone</mat-label>
+            <input matInput placeholder="Phone" value="+1-202-555-0101" />
+        </mat-form-field>
+        <button mat-raised-button color="primary">Save</button>
+    </mat-card>
+
+    <mat-card class="timeline-card">
+        <h3>Timeline</h3>
+        <div class="timeline-item">
+            <mat-icon>schedule</mat-icon>
+            <div>
+                <div>Viewed "Product X"</div>
+                <small>2 hours ago</small>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <mat-icon>mail</mat-icon>
+            <div>
+                <div>Opened email "Sale Now On"</div>
+                <small>1 day ago</small>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <mat-icon>shopping_cart</mat-icon>
+            <div>
+                <div>Added "Product Y" to basket</div>
+                <small>3 days ago</small>
+            </div>
+        </div>
+        <div class="timeline-item">
+            <mat-icon>shopping_cart</mat-icon>
+            <div>
+                <div>Added "Product Z" to basket</div>
+                <small>1 week ago</small>
+            </div>
+        </div>
+    </mat-card>
+</div>
