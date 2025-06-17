@@ -6,7 +6,7 @@
 }
 
 .title {
-  margin: 20px 0;
+  margin: 1.25rem 0;
 }
 
 .container {
@@ -14,12 +14,12 @@
   flex-direction: column;
   gap: 2rem;
   flex: 1;
-  padding-bottom: 20px;
+  padding-bottom: 1.25rem;
 }
 
 .profile-card,
 .timeline-card {
-  flex: 1 1 300px;
+  flex: 1 1 18.75rem;
   padding: 1.5rem;
 }
 
@@ -33,13 +33,12 @@
   flex-grow: 1;
 }
 
-
 .avatar {
   color: white;
   border-radius: 50%;
-  width: 48px;
-  height: 48px;
-  font-size: 24px;
+  width: 3rem;
+  height: 3rem;
+  font-size: 1.5rem;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,34 +58,31 @@
 }
 
 .timeline-item mat-icon {
-  margin-top: 4px;
+  margin-top: 0.25rem;
 }
-
-
 
 .readonly-field {
   display: flex;
   flex-direction: column;
-  padding: 12px;
-  border-radius: 4px;
+  padding: 0.75rem;
+  border-radius: 0.25rem;
   background: rgba(0, 0, 0, 0.02);
-  min-height: 56px;
-  margin-top: 8px;
+  min-height: 3.5rem;
+  margin-top: 0.5rem;
 }
 
 .readonly-label {
-  font-size: 12px;
+  font-size: 0.75rem;
   color: rgba(0, 0, 0, 0.6);
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem;
 }
 
 .readonly-value {
-  font-size: 16px;
+  font-size: 1rem;
   color: rgba(0, 0, 0, 0.87);
 }
 
-
-@media (min-width: 768px) {
+@media (min-width: 48rem) {
   :host {
     padding: 0 5rem;
   }
@@ -95,7 +91,7 @@
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 64rem) {
   :host {
     padding: 0 10rem;
   }

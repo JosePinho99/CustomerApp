@@ -3,14 +3,13 @@ import {map, Observable, timer} from 'rxjs';
 import {CUSTOMERS} from '../mock-data/customers.mock';
 import {Customer, CustomerResponse} from "../models/customer.model";
 import {Sort} from "@angular/material/sort";
-import {PageEvent} from "@angular/material/paginator";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomerService {
   getCustomers(search: string, pageIndex: number, pageSize: number, sortEvent: Sort): Observable<CustomerResponse> {
-    return timer(1500).pipe(
+    return timer(1000).pipe(
       map(_ => {
           //Filtering
         const filteredItems = CUSTOMERS.filter(customer => {

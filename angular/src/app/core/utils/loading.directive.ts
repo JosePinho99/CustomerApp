@@ -1,4 +1,4 @@
-import {AfterViewInit, Directive, ElementRef, Input, OnChanges, Renderer2, SimpleChanges} from '@angular/core';
+import {Directive, ElementRef, Input, OnChanges, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[loading]',
@@ -13,7 +13,7 @@ export class LoadingDirective implements OnChanges {
 
   constructor(private el: ElementRef, private renderer: Renderer2) {}
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     if (this.loading) {
       this.renderer.addClass(this.el.nativeElement, this.shimmerClass);
       this.renderer.setStyle(this.el.nativeElement, 'height', this.loadingHeight);
