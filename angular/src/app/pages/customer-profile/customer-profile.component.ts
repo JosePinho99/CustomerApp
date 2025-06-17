@@ -7,7 +7,7 @@ import {MatError, MatFormField, MatInput, MatLabel} from "@angular/material/inpu
 import {MatIcon} from "@angular/material/icon";
 import {Customer, CustomerEvent} from '../../core/models/customer.model';
 import {CustomerService} from '../../core/services/customer.service';
-import {LoadingDirective} from '../../core/utils/loading.directive';
+import {LoadingDirective} from '../../core/directives/loading.directive';
 import {AvatarColorPipe} from '../../core/pipes/avatar-color.pipe';
 import {EventIconPipe} from '../../core/pipes/customer-event.pipe';
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from '@angular/forms';

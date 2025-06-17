@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {
   MatCell, MatCellDef,
   MatColumnDef,
@@ -22,13 +22,12 @@ import {
   debounceTime,
   distinctUntilChanged, map, merge,
   Observable,
-  of, scan, skip,
-  startWith,
+  of, scan,
   switchMap, tap
 } from "rxjs";
 import {AvatarColorPipe} from "../../core/pipes/avatar-color.pipe";
 import {Customer} from "../../core/models/customer.model";
-import {LoadingDirective} from '../../core/utils/loading.directive';
+import {LoadingDirective} from '../../core/directives/loading.directive';
 
 @Component({
   selector: 'app-customer-list',
