@@ -4,7 +4,6 @@ import {CommonModule} from '@angular/common';
 import {MatCard} from "@angular/material/card";
 import {MatButton} from "@angular/material/button";
 import {MatError, MatFormField, MatInput, MatLabel} from "@angular/material/input";
-import {MatIcon} from "@angular/material/icon";
 import {Customer, CustomerEvent} from '../../core/models/customer.model';
 import {CustomerService} from '../../core/services/customer.service';
 import {LoadingDirective} from '../../core/directives/loading.directive';
@@ -15,7 +14,7 @@ import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-customer-profile',
-  imports: [CommonModule, MatCard, MatFormField, MatFormField, MatLabel, MatError, MatIcon, MatButton, MatInput, MatFormField, LoadingDirective, AvatarColorPipe, EventIconPipe, ReactiveFormsModule],
+  imports: [CommonModule, MatCard, MatFormField, MatFormField, MatLabel, MatError, MatButton, MatInput, MatFormField, LoadingDirective, AvatarColorPipe, EventIconPipe, ReactiveFormsModule],
   templateUrl: './customer-profile.component.html',
   standalone: true,
   styleUrl: './customer-profile.component.scss'
