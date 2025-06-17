@@ -5,7 +5,7 @@
 - **Customer List**
 - **Customer Profile**
 
-This project demonstrates core Angular concepts and best practices.
+Project link: https://josepinho99.github.io/CustomerApp/
 
 ---
 
