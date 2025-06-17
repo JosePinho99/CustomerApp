@@ -59,7 +59,7 @@ export class CustomerProfileComponent implements OnInit {
     this.editing = false;
     this.customerService.updateCustomer(updatedCustomer).subscribe((customer) => {
       if (customer) {
-        this.snackBar.open("Customer updated succesfully");
+        this.snackBar.open("Customer updated successfully", undefined, {duration: 1000});
       }
       this.loadCustomer(customer!.id);
     });
