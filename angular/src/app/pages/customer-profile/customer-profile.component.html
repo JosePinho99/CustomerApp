@@ -1,53 +1,59 @@
 <h2 class="title">Customer Profile</h2>
 
-<div class="container">
-    <mat-card class="profile-card">
-        <div class="profile-header">
-            <div class="avatar">A</div>
-            <div class="profile-info">
-                <h2>Alice Johnson</h2>
-            </div>
-        </div>
-        <mat-form-field appearance="fill" class="input-field">
-            <mat-label>Email</mat-label>
-            <input matInput placeholder="Email" value="alice.j@example.com" />
-        </mat-form-field>
-        <mat-form-field appearance="fill" class="input-field">
-            <mat-label>Phone</mat-label>
-            <input matInput placeholder="Phone" value="+1-202-555-0101" />
-        </mat-form-field>
-        <button mat-raised-button color="primary">Save</button>
-    </mat-card>
+<form class="container" [formGroup]="profileForm">
+  <mat-card class="profile-card">
+    <div class="profile-header">
+      <div class="avatar" [loading]="loading" [style.background-color]="customer?.name | avatarColor">
+        {{ customer?.name?.charAt(0) }}
+      </div>
+      <h2 [loading]="loading" [loadingHeight]="'56px'" class="profile-info">{{ customer?.name }}</h2>
+      <i *ngIf="!loading" class="fa-solid fa-edit icon" (click)="editing = true"></i>
+    </div>
 
-    <mat-card class="timeline-card">
-        <h3>Timeline</h3>
-        <div class="timeline-item">
-            <mat-icon>schedule</mat-icon>
-            <div>
-                <div>Viewed "Product X"</div>
-                <small>2 hours ago</small>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <mat-icon>mail</mat-icon>
-            <div>
-                <div>Opened email "Sale Now On"</div>
-                <small>1 day ago</small>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <mat-icon>shopping_cart</mat-icon>
-            <div>
-                <div>Added "Product Y" to basket</div>
-                <small>3 days ago</small>
-            </div>
-        </div>
-        <div class="timeline-item">
-            <mat-icon>shopping_cart</mat-icon>
-            <div>
-                <div>Added "Product Z" to basket</div>
-                <small>1 week ago</small>
-            </div>
-        </div>
-    </mat-card>
-</div>
+    <ng-container>
+      <mat-form-field *ngIf="editing" appearance="fill" class="input-field">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" />
+        <mat-error *ngIf="emailControl?.hasError('required')">Email is required</mat-error>
+        <mat-error *ngIf="emailControl?.hasError('email')">Invalid email format</mat-error>
+      </mat-form-field>
+      <div *ngIf="!editing" class="readonly-field">
+        <label  class="readonly-label">Email</label>
+        <div [loading]="loading" class="readonly-value">{{ customer?.email }}</div>
+      </div>
+    </ng-container>
+
+
+    <ng-container>
+      <mat-form-field *ngIf="editing" appearance="fill" class="input-field">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="Phone" formControlName="phone" />
+        <mat-error *ngIf="phoneControl?.hasError('required')">Phone is required</mat-error>
+        <mat-error *ngIf="phoneControl?.hasError('pattern')">Invalid phone number</mat-error>
+      </mat-form-field>
+      <div *ngIf="!editing" class="readonly-field">
+        <label  class="readonly-label">Phone</label>
+        <div [loading]="loading" class="readonly-value">{{ customer?.phone}}</div>
+      </div>
+    </ng-container>
+
+
+    <div style="display:flex; align-items: center; margin-left: auto">
+      <button *ngIf="editing" mat-button color="primary" (click)="cancelEdition()" >Cancel</button>
+      <button *ngIf="editing" mat-flat-button color="primary" [disabled]="profileForm.invalid" (click)="editCostumer()">Save</button>
+    </div>
+  </mat-card>
+
+
+
+  <mat-card class="timeline-card">
+    <h3>Timeline</h3>
+    <div *ngFor="let event of (customer?.events || loadingEvents)" [loading]="loading" [loadingHeight]="'60px'" class="timeline-item">
+      <i *ngIf="!loading" class="fa-solid {{event.type | eventIcon}} icon"></i>
+      <div>
+        <div>{{event?.description}}</div>
+        <small>{{event?.timestamp | date:"YYYY-MM-dd  -  HH-mm"}}</small>
+      </div>
+    </div>
+  </mat-card>
+</form>
